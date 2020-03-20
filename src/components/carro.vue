@@ -1,31 +1,58 @@
 <template>
-    <div id="carro">
-        
-      <svg>
-        <use :xlink:href="require('../assets/car.svg') + '#Capa_1'" :width="carrito[0].width" :height="carrito[0].height" :x="originX" :y="originY" :transform="transform"/>
-      </svg>
+    <div id="carros">
+        <div id="carro">
+            <svg>
+                <use :xlink:href="require('../assets/car.svg') + '#Capa_1'" :width="width" :height="height" :x="originX" :y="originY" :transform="transform"/>
+            </svg>
+        </div>
+
+      <button @click="intervalo()">moverDerecha</button>
+      <span>{{carro_x}}</span>
     </div>
 </template>
 
 <script>
 export default {
     name: 'carro',
-    props:[
-        'carrito'
-    ],
-
-    data: () => ({
-    }),
-      computed: {
+    props:{
+        width: Number,
+        height: Number,
+        x: Number,
+        y: Number,
+        angle: Number,
+    },  
+    
+    methods:{
+        moverDerecha() {
+            var carro = document.getElementById("carro");
+            if ( this.carro_x <= 88 && this.carro_x >= 0) { //condición para que se mueva entre estos valores de la pantalla
+                this.carro_x = this.carro_x + 1; //movimiento del valor x
+                carro.style.left = this.carro_x + "%"; //aplicar el valor obtenido al left del elemento
+            }
+            else { //si no cumple la condición, es decir, se sale de los valores de la pantalla, vuelve a empezar
+            this.carro_x=0; //posicion inicial
+            carro.style.left = this.carro_x + "%"; //volvemos a aplicar el valor obtenido al left del elemento
+            }
+        },
+        intervalo(){
+            setInterval(this.moverDerecha,1000);
+        },
+        
+    },
+    computed: {
       originX(){
-        return this.carrito[0].x - this.carrito[0].width/2
+        return this.x - this.width/2
       },
       originY(){
-        return this.carrito[0].y - this.carrito[0].height/2
+        return this.y - this.height/2
       },
       transform(){
-        return `rotate(${this.carrito[0].angle} ${this.carrito[0].x} ${this.carrito[0].y})`
-      }
+        return `rotate(${this.angle} ${this.x} ${this.y})`
+      },
+    data: () => ({
+        carro_x: 0,
+    }),
+
   },
 
 };
