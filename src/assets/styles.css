@@ -1,20 +1,21 @@
-
 body {
-    background-image: url('./carretera.jpg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+  background-image: url("./carretera.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: rgb(134, 134, 134);
 }
-#carro{
-    position: relative;
-    
+#carro {
+  position: relative;
 }
 
-html,body,svg{
-    width: 100%;
-    height: 100%;
-    display: block;
-    margin:0;
-    padding: 0;
+html,
+body,
+svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0;
+  padding: 0;
 }
