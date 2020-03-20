@@ -81,6 +81,7 @@ export default {
     // }
   },
   methods: {
+    ...mapMutations(["sema"]),
     moverDerecha(x, i) {
       var carro = $("#carretera1 .carro0");
       if (this.carro_x <= 88 && this.carro_x >= 0) {
@@ -112,7 +113,7 @@ export default {
       }
     },
     comen() {
-      console.log("object");
+      this.sema();
       setInterval(a => {
         this.moverDerecha();
       }, 100);

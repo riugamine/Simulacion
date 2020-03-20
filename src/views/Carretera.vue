@@ -1,35 +1,5 @@
 <template>
   <div id="Carretera">
-    <!-- <div id="carretera1">
-      <div id="carro">
-        <svg>
-          <use
-            :xlink:href="carHref"
-            :width="width"
-            :height="height"
-            :x="originX"
-            :y="originY"
-            :transform="transform"
-          />
-        </svg>
-      </div>
-    </div>
-
-    <div id="carretera1">
-      <div id="carro">
-        <svg>
-          <use
-            :xlink:href="carHref"
-            :width="width"
-            :height="height"
-            :x="originX2"
-            :y="originY2"
-            :transform="transform2"
-          />
-        </svg>
-      </div>
-    </div> -->
-
     <carro />
     <!-- <carro :width="70" :height="70" :x="40" :y="100" :angle="90"></carro> -->
 
@@ -76,6 +46,7 @@
         </div>
       </div>
     </div>
+    <vista style="margin-top:-120px" />
   </div>
 </template>
 
@@ -84,6 +55,7 @@ import { mapState, mapMutations, mapGetters } from "vuex";
 import jQuery from "jquery";
 let $ = jQuery;
 import carro from "../components/carro.vue";
+import vista from "./VistaResultados.vue";
 export default {
   name: "carretera",
   data() {
@@ -109,13 +81,14 @@ export default {
     };
   },
   components: {
-    carro
+    carro,
+    vista
   },
   computed: {
     ...mapState(["sem1", "sem2"])
   },
   mounted() {
-    this.sema();
+    // this.sema();
   },
   methods: {
     ...mapMutations(["sema"])
