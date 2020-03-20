@@ -3,7 +3,7 @@
     <carro />
     <!-- <carro :width="70" :height="70" :x="40" :y="100" :angle="90"></carro> -->
 
-    <div class="background">
+    <div style="z-index:2" class="background">
       <div id="box-out">
         <div id="box-inside" class="semaforo1">
           <div
@@ -25,7 +25,7 @@
       </div>
     </div>
 
-    <div class="background">
+    <div style="z-index:1" class="background">
       <div id="box-out" style="margin: 140px 60% 0px 55%;">
         <div id="box-inside" class="semaforo2">
           <div
@@ -46,7 +46,7 @@
         </div>
       </div>
     </div>
-    <vista style="margin-top:-120px" />
+    <vista style="margin-top:-140px; position:absolute; z-index:3;" />
   </div>
 </template>
 

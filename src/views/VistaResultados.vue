@@ -1,19 +1,14 @@
 <template>
-    <Datos/>
+  <Datos />
 </template>
 <script>
-import Datos from '@/components/Datos';
+import Datos from "@/components/Datos";
 export default {
-    components: {Datos,}
-}
+  components: { Datos }
+};
 </script>
-<style >
-
-
-body{
-     background-color: white;
-     
-     
-
+<style>
+body {
+  color: rgb(0, 0, 0);
 }
 </style>

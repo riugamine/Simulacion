@@ -82,7 +82,7 @@ export default {
   },
   methods: {
     ...mapMutations(["sema"]),
-    moverDerecha(x, i) {
+    moverDerecha() {
       var carro = $("#carretera1 .carro0");
       if (this.carro_x <= 88 && this.carro_x >= 0) {
         //condición para que se mueva entre estos valores de la pantalla
@@ -113,7 +113,12 @@ export default {
       }
     },
     comen() {
+      var i = 0;
       this.sema();
+      // var timer = setInterval(async () => {
+      //   i++;
+      //   this.carros1.push({ x: 40, y: 100, angle: 90 });
+      // }, 2000);
       setInterval(a => {
         this.moverDerecha();
       }, 100);
