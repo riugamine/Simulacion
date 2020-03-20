@@ -21,6 +21,9 @@
 <script>
 export default {
   name: "carro",
+  data: () => ({
+    carro_x: 0
+  }),
   props: {
     width: Number,
     height: Number,
@@ -55,10 +58,7 @@ export default {
     },
     transform() {
       return `rotate(${this.angle} ${this.x} ${this.y})`;
-    },
-    data: () => ({
-      carro_x: 0
-    })
+    }
   }
 };
 </script>

@@ -31,16 +31,53 @@ import carro from "../components/carro.vue";
 export default {
   name: "carretera",
   data() {
-    return {};
+    return {
+      sem1: {
+        verde: true,
+        amarillo: false,
+        rojo: false
+      },
+      sem2: {
+        verde: false,
+        amarillo: false,
+        rojo: false
+      }
+    };
   },
   components: {
     carro
   },
   computed: {
     semaforo1: function() {
+      var clase = "";
+      var timer = setInterval(async () => {
+        if (this.sem1.verde) {
+          clase = "circulo1hover";
+        }
+        // if (c == jornadas.length) {
+        //   clearInterval(timer);
+        //   res.json({
+        //     jornadas,
+        //     DClaves
+        //   });
+        // }circulo1hover
+      }, 5000);
       return "circulo1hover";
     },
     semaforo2: function() {
+      var clase = "";
+      var timer = setInterval(async () => {
+        if (this.sem1.verde) {
+          clase = "circulo3hover";
+        }
+        // if (c == jornadas.length) {
+        //   clearInterval(timer);
+        //   res.json({
+        //     jornadas,
+        //     DClaves
+        //   });
+        // }circulo1hover
+      }, 5000);
       return "circulo3hover";
     }
   },
