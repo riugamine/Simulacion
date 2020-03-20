@@ -3,9 +3,21 @@
     <div class="background">
       <div id="box-out">
         <div id="box-inside" class="semaforo1">
-          <div id="circulo1" class="color1" v-bind:class="semaforo1"></div>
-          <div id="circulo2" class="color2"></div>
-          <div id="circulo3" class="color3"></div>
+          <div
+            id="circulo1"
+            class="color1"
+            v-bind:class="sem1.verde ? 'circulo1hover' : null"
+          ></div>
+          <div
+            id="circulo2"
+            class="color2"
+            v-bind:class="sem1.amarillo ? 'circulo2hover' : null"
+          ></div>
+          <div
+            id="circulo3"
+            class="color3"
+            v-bind:class="sem1.rojo ? 'circulo3hover' : null"
+          ></div>
         </div>
       </div>
     </div>
@@ -15,9 +27,21 @@
     <div class="background">
       <div id="box-out" style="margin: 180px 60%;">
         <div id="box-inside" class="semaforo2">
-          <div id="circulo1" class="color1"></div>
-          <div id="circulo2" class="color2"></div>
-          <div id="circulo3" class="color3" v-bind:class="semaforo2"></div>
+          <div
+            id="circulo1"
+            class="color1"
+            v-bind:class="sem2.verde ? 'circulo1hover' : null"
+          ></div>
+          <div
+            id="circulo2"
+            class="color2"
+            v-bind:class="sem2.amarillo ? 'circulo2hover' : null"
+          ></div>
+          <div
+            id="circulo3"
+            class="color3"
+            v-bind:class="sem2.rojo ? 'circulo3hover' : null"
+          ></div>
         </div>
       </div>
     </div>
@@ -40,47 +64,14 @@ export default {
       sem2: {
         verde: false,
         amarillo: false,
-        rojo: false
+        rojo: true
       }
     };
   },
   components: {
     carro
   },
-  computed: {
-    semaforo1: function() {
-      var clase = "";
-      var timer = setInterval(async () => {
-        if (this.sem1.verde) {
-          clase = "circulo1hover";
-        }
-        // if (c == jornadas.length) {
-        //   clearInterval(timer);
-        //   res.json({
-        //     jornadas,
-        //     DClaves
-        //   });
-        // }circulo1hover
-      }, 5000);
-      return "circulo1hover";
-    },
-    semaforo2: function() {
-      var clase = "";
-      var timer = setInterval(async () => {
-        if (this.sem1.verde) {
-          clase = "circulo3hover";
-        }
-        // if (c == jornadas.length) {
-        //   clearInterval(timer);
-        //   res.json({
-        //     jornadas,
-        //     DClaves
-        //   });
-        // }circulo1hover
-      }, 5000);
-      return "circulo3hover";
-    }
-  },
+  computed: {},
   mounted() {
     var timer = setInterval(async () => {
       // if (c == jornadas.length) {
