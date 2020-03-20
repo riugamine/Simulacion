@@ -1,5 +1,38 @@
 <template>
   <div id="Carretera">
+    <!-- <div id="carretera1">
+      <div id="carro">
+        <svg>
+          <use
+            :xlink:href="carHref"
+            :width="width"
+            :height="height"
+            :x="originX"
+            :y="originY"
+            :transform="transform"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <div id="carretera1">
+      <div id="carro">
+        <svg>
+          <use
+            :xlink:href="carHref"
+            :width="width"
+            :height="height"
+            :x="originX2"
+            :y="originY2"
+            :transform="transform2"
+          />
+        </svg>
+      </div>
+    </div> -->
+
+    <carro />
+    <!-- <carro :width="70" :height="70" :x="40" :y="100" :angle="90"></carro> -->
+
     <div class="background">
       <div id="box-out">
         <div id="box-inside" class="semaforo1">
@@ -8,11 +41,11 @@
             class="color1"
             v-bind:class="sem1.verde ? 'circulo1hover' : null"
           ></div>
-          <div
+          <!-- <div
             id="circulo2"
             class="color2"
             v-bind:class="sem1.amarillo ? 'circulo2hover' : null"
-          ></div>
+          ></div> -->
           <div
             id="circulo3"
             class="color3"
@@ -21,22 +54,20 @@
         </div>
       </div>
     </div>
-    <carro :width="50" :height="50" :x="100" :y="100" :angle="90"></carro>
-    <carro :width="50" :height="50" :x="40" :y="100" :angle="90"></carro>
 
     <div class="background">
-      <div id="box-out" style="margin: 180px 60%;">
+      <div id="box-out" style="margin: 140px 60% 0px 55%;">
         <div id="box-inside" class="semaforo2">
           <div
             id="circulo1"
             class="color1"
             v-bind:class="sem2.verde ? 'circulo1hover' : null"
           ></div>
-          <div
+          <!-- <div
             id="circulo2"
             class="color2"
             v-bind:class="sem2.amarillo ? 'circulo2hover' : null"
-          ></div>
+          ></div> -->
           <div
             id="circulo3"
             class="color3"
@@ -49,6 +80,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations, mapGetters } from "vuex";
 import jQuery from "jquery";
 let $ = jQuery;
 import carro from "../components/carro.vue";
@@ -56,33 +88,37 @@ export default {
   name: "carretera",
   data() {
     return {
-      sem1: {
-        verde: true,
-        amarillo: false,
-        rojo: false
-      },
-      sem2: {
-        verde: false,
-        amarillo: false,
-        rojo: true
-      }
+      // sem1: {
+      //   verde: false,
+      //   amarillo: false,
+      //   rojo: false
+      // },
+      // sem2: {
+      //   verde: false,
+      //   amarillo: false,
+      //   rojo: false
+      // },
+      carros1: [{ x: 300, y: 90, angle: 90 }],
+      carros2: [
+        { x: 300, y: 90, angle: 90 },
+        { x: 300, y: 90, angle: 90 }
+      ],
+      carHref: require("../assets/car.svg") + "#Capa_1",
+      width: 70,
+      height: 70
     };
   },
   components: {
     carro
   },
-  computed: {},
+  computed: {
+    ...mapState(["sem1", "sem2"])
+  },
   mounted() {
-    var timer = setInterval(async () => {
-      // if (c == jornadas.length) {
-      //   clearInterval(timer);
-      //   res.json({
-      //     jornadas,
-      //     DClaves
-      //   });
-      // }circulo1hover
-    }, 5000);
-    // console.log($(".semaforo2 #circulo1").addClass("circulo1hover"));
+    this.sema();
+  },
+  methods: {
+    ...mapMutations(["sema"])
   }
 };
 </script>
@@ -179,7 +215,7 @@ body {
   height: 80px;
   border: solid 1px;
   border-radius: 10px;
-  margin: 70px 40%;
+  margin: 140px 40% 0px 40%;
   padding: 8px 13px 8px 10px;
   transition: width 2s, height 2s;
   -webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* Safari and Chrome */

@@ -1,5 +1,5 @@
 body {
-  background-image: url("./carretera.png");
+  background-image: url("./carretera2.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -8,7 +8,23 @@ body {
 }
 #carro {
   position: absolute;
-  top: 52%;
+}
+
+#carretera1 #carro svg {
+  width: 100%;
+}
+#carretera1 #carro {
+  width: 100%;
+  top: 35%;
+}
+
+#carretera2 #carro svg {
+  width: 100%;
+  height: 100%;
+}
+#carretera2 #carro {
+  width: 100%;
+  height: 100%;
 }
 
 html,
